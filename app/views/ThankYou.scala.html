@@ -16,33 +16,33 @@
 
 @import config.FrontendAppConfig
 
-@this(mainTemplate: mainTemplate)
+@this(
+    mainTemplateNew: MainTemplateNew,
+    h1: components.h1,
+    p: components.p,
+    link: components.link
+)
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
 @govUkLink = {
-<a href="@appConfig.govUkUrl">@messages("thankYou.userResearch.urLinkText")</a>
+    @link(appConfig.govUkUrl, messageKey = "thankYou.userResearch.urLinkText")
 }
 
-@mainTemplate(
-    title = messages("thankYou.title"),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@mainTemplateNew(title = messages("thankYou.title")) {
 
-    @components.heading("thankYou.heading")
+    @h1("thankYou.heading")
 
-    <p>@messages("thankYou.intro")</p>
+    @p(Html(messages("thankYou.intro")))
 
     @appConfig.urLinkUrl.map { urLinkUrl =>
 
-        <h2>
-            @Html(messages("thankYou.userResearch.intro1", govUkLink))
-        </h2>
+    <h2>
+        @Html(messages("thankYou.userResearch.intro1", govUkLink))
+    </h2>
 
-        <p>
-            @Html(messages("thankYou.userResearch.intro2", govUkLink))
-        </p>
+    @p(Html(messages("thankYou.userResearch.intro2", govUkLink)))
 
-        <a href="@urLinkUrl">@messages("thankYou.userResearch.UrLink")</a>
+    @p(link(link = urLinkUrl, messageKey = "thankYou.userResearch.UrLink"))
     }
 }

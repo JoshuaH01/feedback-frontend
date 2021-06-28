@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    GOVUK.details.init();
   // =====================================================
   // Initialise show-hide-content
   // Toggles additional content based on radio/checkbox input state

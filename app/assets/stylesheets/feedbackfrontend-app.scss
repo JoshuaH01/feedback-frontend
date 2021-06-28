@@ -1,3 +1,9 @@
+$govuk-assets-path: "/feedback/assets/lib/govuk-frontend/govuk/assets/";
+$hmrc-assets-path: "/feedback/assets/lib/hmrc-frontend/hmrc/";
+
+@import "lib/govuk-frontend/govuk/all";
+@import "lib/hmrc-frontend/hmrc/all";
+
 @import 'partials/_variables';
 @import 'partials/_base';
 
@@ -9,3 +15,7 @@
 @import 'partials/_shame';
 
 @import 'custom';
+
+.hmrc-language-select__list-item {
+ font-size: 20px;
+}

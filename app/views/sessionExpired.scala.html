@@ -21,11 +21,11 @@
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
 @mainTemplate(
-    title = messages("sessionExpired.title"),
-    appConfig = appConfig,
-    bodyClasses = None) {
+title = messages("sessionExpired.title"),
+appConfig = appConfig,
+bodyClasses = None) {
 
-    @components.heading("sessionExpired.heading")
+@components.heading("sessionExpired.heading")
 
-    <p>@messages("sessionExpired.guidance")</p>
+<p>@messages("sessionExpired.guidance")</p>
 }
