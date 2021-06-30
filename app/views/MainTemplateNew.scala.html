@@ -29,9 +29,7 @@
 @serviceInfoContent = {}
 
 @sidebar = {
-    @if(sidebarLinks.isDefined) {
-        @sidebarUI(sidebarLinks.get, Some("sidebar"))
-    }
+    sidebarLinks.map(links => sidebarUI(links, Some(""sidebar)))
 }
 
-@govukLayoutWrapper(pageTitle = title, sidebar = sidebar)(contentBlock)
+@govukLayoutWrapper(pageTitle = title, sidebar = sidebarLinks.map(links => sidebarUI(links, Some("sidebar"))))(contentBlock)

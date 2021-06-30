@@ -27,12 +27,13 @@
     hmrcHead: hmrcHead,
     scripts: HmrcScripts,
     reportTechnicalIssues: hmrcReportTechnicalIssue,
-    twoThirdsOneThirdMainContent: TwoThirdsOneThirdMainContent
+    twoThirdsOneThirdMainContent: TwoThirdsOneThirdMainContent,
+    twoThirdsMainContent: TwoThirdsMainContent
 )
 
 @(
     pageTitle: String,
-    sidebar: Html = HtmlFormat.empty,
+    sidebar: Option[Html] = None,
     headScripts: Option[Html] = None
 )(content: Html)(implicit request: RequestHeader, messages: Messages)
 
@@ -59,5 +60,8 @@
     scriptsBlock = Some(scripts(nonce = CSPNonce.get)),
     beforeContentBlock = Some(hmrcLanguageSelectHelper()),
     footerBlock = Some(hmrcStandardFooter()),
-    mainContentLayout = Some(twoThirdsOneThirdMainContent(sidebar))
+    mainContentLayout = Some(sidebar match {
+                                case Some(sidebarHtml) => twoThirdsOneThirdMainContent(sidebarHtml)
+                                case None => twoThirdsMainContent(_)
+                            })
 )(contentBlock)
