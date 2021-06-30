@@ -26,10 +26,4 @@
   mainClass: Option[String] = None,
   scriptElem: Option[Html] = None)(contentBlock: Html)(implicit request : Request[_], messages: Messages)
 
-@serviceInfoContent = {}
-
-@sidebar = {
-    sidebarLinks.map(links => sidebarUI(links, Some(""sidebar)))
-}
-
 @govukLayoutWrapper(pageTitle = title, sidebar = sidebarLinks.map(links => sidebarUI(links, Some("sidebar"))))(contentBlock)
