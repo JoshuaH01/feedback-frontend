@@ -22,7 +22,6 @@
     govukLayout: GovukLayout,
     hmrcStandardHeader: HmrcStandardHeader,
     hmrcStandardFooter: HmrcStandardFooter,
-    hmrcTrackingConsentSnippet: HmrcTrackingConsentSnippet,
     hmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
     hmrcHead: hmrcHead,
     scripts: HmrcScripts,
@@ -39,7 +38,6 @@
 
 
 @headBlock = {
-    @hmrcTrackingConsentSnippet()
     @headScripts
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/feedbackfrontend-app.css")' />
